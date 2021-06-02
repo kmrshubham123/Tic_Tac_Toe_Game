@@ -8,12 +8,15 @@ namespace TicTacToegame
         {
             Console.WriteLine("##### Welcome to Tic Tac Toe Game #####");
             /// create board
-            TicTacToe ticTacToe = new TicTacToe();
-            ticTacToe.GameBoard();
-            /// 
-            char userLetter = ticTacToe.ChooseUserLetter();
-            Console.WriteLine("User Choice is :-"+userLetter);
-            Console.ReadKey();
+            char[] board = TicTacToe.GameBoard();   
+            Console.WriteLine(board);
+            /// choose letter x and o
+            char choose = TicTacToe.ChooseUserLetter();
+            Console.WriteLine("Your choice is " + choose);
+            /// showBoard function call
+            TicTacToe.showBoard(board);
+
+
 
         }
     }
