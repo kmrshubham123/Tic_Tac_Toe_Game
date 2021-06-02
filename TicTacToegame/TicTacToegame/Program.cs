@@ -10,6 +10,11 @@ namespace TicTacToegame
             /// create board
             TicTacToe ticTacToe = new TicTacToe();
             ticTacToe.GameBoard();
+            /// 
+            char userLetter = ticTacToe.ChooseUserLetter();
+            Console.WriteLine("User Choice is :-"+userLetter);
+            Console.ReadKey();
+
         }
     }
 }
