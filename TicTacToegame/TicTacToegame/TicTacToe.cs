@@ -75,6 +75,7 @@ namespace TicTacToegame
             Random objRandom = new Random();
             return (int)(objRandom.Next() * 10) % choices;
         }
+        
 
     }
 }
