@@ -6,6 +6,9 @@ namespace TicTacToegame
 {   /// <Create_board_of_char[]_of_size_10 >
     static class TicTacToe
     {
+        public const int HEAD = 0;
+        public const int TAIL = 1;
+        public enum Player { USER, COMPUTER };
         public static char[] GameBoard()
         {
             char[] board = new char[10];
@@ -58,6 +61,20 @@ namespace TicTacToegame
             bool spaceFree = isFreeSpace(board, index);
             if (spaceFree) board[index] = letter;
          }
+        
+        /// Head and Tails, Who start First
        
+        
+        public static Player getWhoStartFirst()
+        {
+            int toss = getOneFromRandomChoice(2);
+            return (toss == HEAD) ? Player.USER : Player.COMPUTER;
+        }
+        public static int getOneFromRandomChoice(int choices)
+        {
+            Random objRandom = new Random();
+            return (int)(objRandom.Next() * 10) % choices;
+        }
+
     }
 }

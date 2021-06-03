@@ -8,7 +8,7 @@ namespace TicTacToegame
         {
             Console.WriteLine("##### Welcome to Tic Tac Toe Game #####");
             /// create board
-            char[] board = TicTacToe.GameBoard();   
+            char[] board = TicTacToe.GameBoard();
             Console.WriteLine(board);
             /// choose letter x and o
             char choose = TicTacToe.ChooseUserLetter();
@@ -18,10 +18,11 @@ namespace TicTacToegame
             ///make a move
             int userMove = TicTacToe.GetUserMove(board);
             TicTacToe.makeMove(board, userMove, choose);
-            
+            ///
+            TicTacToe.getWhoStartFirst();
+        
+        }   
 
-
-
-        }
     }
-}
+
+}   
