@@ -37,45 +37,8 @@ namespace TicTacToegame
             Console.WriteLine("_________________");
             Console.WriteLine(" " + board[7] + " | " + board[8] + " | " + board[9]);
         }
-        /// <select_the_index_from_1_to_9_to_move>
-        public static int GetUserMove(char[] board)
-        {
-            int[] validCells = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            while (true)
-            {
-                Console.WriteLine("What is Your next move? (1-9):-");
-                int index = Convert.ToInt32(Console.ReadLine());
-                if (Array.Find<int>(validCells, elements => elements == index) != 0 && isFreeSpace(board, index))
-                    return index;
-            } 
-           
-        }    
-            static bool isFreeSpace(char[] board, int index)
-            {
-                return board[index] == ' ';
-            }
-
-          ///make move
-         public static void makeMove(char [] board,int index,char letter)
-         {
-            bool spaceFree = isFreeSpace(board, index);
-            if (spaceFree) board[index] = letter;
-         }
         
-        /// Head and Tails, Who start First
+      
        
-        
-        public static Player getWhoStartFirst()
-        {
-            int toss = getOneFromRandomChoice(2);
-            return (toss == HEAD) ? Player.USER : Player.COMPUTER;
-        }
-        public static int getOneFromRandomChoice(int choices)
-        {
-            Random objRandom = new Random();
-            return (int)(objRandom.Next() * 10) % choices;
-        }
-        
-
     }
 }
