@@ -17,7 +17,9 @@ namespace TicTacToegame
             TicTacToe.showBoard(board);
             ///make a move
             int userMove = TicTacToe.GetUserMove(board);
-          
+            TicTacToe.makeMove(board, userMove, choose);
+            
+
 
 
         }

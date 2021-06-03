@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TicTacToegame
 {   /// <Create_board_of_char[]_of_size_10 >
-    class TicTacToe
+    static class TicTacToe
     {
         public static char[] GameBoard()
         {
@@ -44,11 +44,20 @@ namespace TicTacToegame
                 int index = Convert.ToInt32(Console.ReadLine());
                 if (Array.Find<int>(validCells, elements => elements == index) != 0 && isFreeSpace(board, index))
                     return index;
+            } 
+           
+        }    
+            static bool isFreeSpace(char[] board, int index)
+            {
+                return board[index] == ' ';
             }
-             static bool isFreeSpace(char[] board, int index)
-             {
-                 return board[index] ==' ';
-             }
-        }
+
+          ///make move
+         public static void makeMove(char [] board,int index,char letter)
+         {
+            bool spaceFree = isFreeSpace(board, index);
+            if (spaceFree) board[index] = letter;
+         }
+       
     }
 }
