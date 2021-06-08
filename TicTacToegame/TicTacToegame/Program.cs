@@ -34,15 +34,19 @@ namespace TicTacToegame
                    (board[1] == ch && board[5] == ch && board[9] == ch) ||     //across the top left diagonal
                    (board[7] == ch && board[5] == ch && board[3] == ch));      //across the bottom left diagonal
         }
-        ///get computer move
+        ///get computer move UC8-11
         private static int getComputerMove(char[] board, char computerLetter, char userLetter)
         {
             int winnigMove = getWinningMove(board, computerLetter);
             if (winnigMove != 0) return winnigMove;
-            int userWinnigMove = getWinningMove(board, computerLetter);
+            int userWinnigMove = getWinningMove(board, userLetter);
             if (userWinnigMove != 0) return userWinnigMove;
             int[] cornerMove = { 1, 3, 7, 9 };
             int computerMove = getRandomMoveFromList(board, cornerMove);
+            if (computerMove != 0) return computerMove;
+            if (isFreeSpace(board, 5)) return 5;  // center Move
+            int[] sideMove = { 2, 4, 6, 8 };
+            computerMove = getRandomMoveFromList(board, sideMove);
             if (computerMove != 0) return computerMove;
             return 0;
         }
