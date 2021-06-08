@@ -6,9 +6,6 @@ namespace TicTacToegame
 {   /// <Create_board_of_char[]_of_size_10 >
     static class TicTacToe
     {
-        public const int HEAD = 0;
-        public const int TAIL = 1;
-        public enum Player { USER, COMPUTER };
         public static char[] GameBoard()
         {
             char[] board = new char[10];
@@ -37,8 +34,20 @@ namespace TicTacToegame
             Console.WriteLine("_________________");
             Console.WriteLine(" " + board[7] + " | " + board[8] + " | " + board[9]);
         }
-        
-      
-       
+        public static char chooseComputerChar(char user)
+        {
+            char computerLetter;
+            if (user == 'X')
+            {
+                computerLetter = 'O';
+                return computerLetter;
+            }
+            else
+            {
+                return computerLetter = 'X';
+            }
+        }
+
+
     }
 }
