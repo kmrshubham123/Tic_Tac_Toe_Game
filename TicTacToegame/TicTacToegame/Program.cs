@@ -39,14 +39,10 @@ namespace TicTacToegame
         {
             int winnigMove = getWinningMove(board, computerLetter);
             if (winnigMove != 0) return winnigMove;
-            int userWinnigMove = getWinningMove(board, userLetter);
+            int userWinnigMove = getWinningMove(board, computerLetter);
             if (userWinnigMove != 0) return userWinnigMove;
             int[] cornerMove = { 1, 3, 7, 9 };
             int computerMove = getRandomMoveFromList(board, cornerMove);
-            if (computerMove != 0) return computerMove;
-            if (isFreeSpace(board, 5)) return 5;  //
-            int[] sideMove = { 2, 4, 6, 8 };
-            computerMove = getRandomMoveFromList(board, sideMove);
             if (computerMove != 0) return computerMove;
             return 0;
         }
