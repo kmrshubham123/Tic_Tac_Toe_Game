@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 
 namespace TicTacToegame
 {
@@ -34,10 +39,26 @@ namespace TicTacToegame
         {
             int winnigMove = getWinningMove(board, computerLetter);
             if (winnigMove != 0) return winnigMove;
-            int userWinnigMove = getWinningMove(board, computerLetter);
+            int userWinnigMove = getWinningMove(board, userLetter);
             if (userWinnigMove != 0) return userWinnigMove;
+            int[] cornerMove = { 1, 3, 7, 9 };
+            int computerMove = getRandomMoveFromList(board, cornerMove);
+            if (computerMove != 0) return computerMove;
+            if (isFreeSpace(board, 5)) return 5;  //
+            int[] sideMove = { 2, 4, 6, 8 };
+            computerMove = getRandomMoveFromList(board, sideMove);
+            if (computerMove != 0) return computerMove;
             return 0;
         }
+        private static int getRandomMoveFromList(char[] board, int[] moves)
+        {
+            for (int index = 0; index < moves.Length; index++)
+            {
+                if (isFreeSpace(board, moves[index])) return moves[index];
+            }
+            return 0;
+        }
+
         ///winng move
         private static int getWinningMove(char[] board, char letter)
         {
